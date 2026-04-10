@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tropos</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;1,300&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      background: #0a0a0a;
+      color: #e8e4dc;
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 24px;
+    }
+
+    h1 {
+      font-size: clamp(48px, 12vw, 96px);
+      font-weight: 300;
+      font-style: italic;
+      letter-spacing: -1px;
+      margin-bottom: 48px;
+      opacity: 0.9;
+    }
+
+    #input {
+      background: transparent;
+      border: none;
+      border-bottom: 1px solid #333;
+      color: #e8e4dc;
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: clamp(18px, 3vw, 24px);
+      font-weight: 300;
+      width: min(560px, 90vw);
+      min-height: 120px;
+      resize: none;
+      outline: none;
+      line-height: 1.7;
+      padding-bottom: 12px;
+      transition: border-color 0.4s;
+    }
+
+    #input::placeholder {
+      color: #333;
+    }
+
+    #input:focus {
+      border-color: #555;
+    }
+
+    #confirmacion {
+      margin-top: 32px;
+      font-size: 14px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: #444;
+      opacity: 0;
+      transition: opacity 1s;
+      height: 20px;
+    }
+
+    #confirmacion.visible {
+      opacity: 1;
+    }
+
+    .instruccion {
+      position: fixed;
+      bottom: 32px;
+      font-size: 11px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: #2a2a2a;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Aquí.</h1>
+
+  <textarea id="input" placeholder="" autofocus></textarea>
+
+  <div id="confirmacion">quedó.</div>
+
+  <div class="instruccion">enter para soltar</div>
+
+  <script>
+    const textarea = document.getElementById("input");
+    const confirmacion = document.getElementById("confirmacion");
+
+    textarea.addEventListener("keydown", function(e) {
+      if (e.key === "Enter" && !e.shiftKey) {
+        e.preventDefault();
+        const content = textarea.value.trim();
+        if (!content) return;
+
+        fetch("/submit", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ content })
+        })
+        .then(res => res.json())
+        .then(() => {
+          textarea.value = "";
+          confirmacion.classList.add("visible");
+          setTimeout(() => confirmacion.classList.remove("visible"), 3000);
+        })
+        .catch(err => console.error(err));
+      }
+    });
+  </script>
+
+</body>
+</html>
