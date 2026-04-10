@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tropos — Manifiesto</title>
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --ink: #1a1714;
+      --paper: #f5f0e8;
+      --faded: #9a9088;
+      --accent: #2c1810;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      background: var(--paper);
+      color: var(--ink);
+      font-family: 'EB Garamond', Georgia, serif;
+      min-height: 100vh;
+    }
+
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      padding: 80px 24px 120px;
+    }
+
+    .documento {
+      max-width: 620px;
+      width: 100%;
+      position: relative;
+    }
+
+    .encabezado {
+      margin-bottom: 72px;
+      opacity: 0;
+      animation: aparecer 1.2s ease forwards;
+      animation-delay: 0.2s;
+    }
+
+    .nombre {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(64px, 14vw, 108px);
+      font-weight: 300;
+      letter-spacing: -2px;
+      line-height: 0.9;
+      color: var(--ink);
+      margin-bottom: 16px;
+    }
+
+    .subtitulo {
+      font-size: 13px;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: var(--faded);
+      font-weight: 400;
+    }
+
+    .linea-divisora {
+      width: 40px;
+      height: 1px;
+      background: var(--faded);
+      margin: 48px 0;
+      opacity: 0;
+      animation: aparecer 1s ease forwards;
+      animation-delay: 0.6s;
+    }
+
+    .cuerpo {
+      opacity: 0;
+      animation: aparecer 1.4s ease forwards;
+      animation-delay: 0.9s;
+    }
+
+    .bloque {
+      margin-bottom: 48px;
+    }
+
+    .etiqueta {
+      font-size: 10px;
+      letter-spacing: 5px;
+      text-transform: uppercase;
+      color: var(--faded);
+      margin-bottom: 14px;
+      display: block;
+    }
+
+    p {
+      font-size: clamp(17px, 2.4vw, 20px);
+      line-height: 1.75;
+      color: var(--ink);
+      font-weight: 400;
+    }
+
+    p em {
+      font-style: italic;
+      color: var(--accent);
+    }
+
+    .frase-central {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(36px, 8vw, 56px);
+      font-weight: 300;
+      font-style: italic;
+      line-height: 1.2;
+      color: var(--ink);
+      margin: 64px 0;
+      padding-left: 24px;
+      border-left: 1px solid var(--ink);
+    }
+
+    .alma {
+      display: grid;
+      gap: 24px;
+      margin-top: 8px;
+    }
+
+    .alma-item {
+      display: flex;
+      gap: 20px;
+      align-items: baseline;
+    }
+
+    .alma-key {
+      font-size: 10px;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: var(--faded);
+      min-width: 120px;
+      flex-shrink: 0;
+    }
+
+    .alma-val {
+      font-size: clamp(16px, 2.2vw, 18px);
+      line-height: 1.6;
+      color: var(--ink);
+    }
+
+    .pie {
+      margin-top: 80px;
+      padding-top: 32px;
+      border-top: 1px solid #d4cfc6;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      opacity: 0;
+      animation: aparecer 1s ease forwards;
+      animation-delay: 1.4s;
+    }
+
+    .pie-texto {
+      font-size: 12px;
+      color: var(--faded);
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      line-height: 1.8;
+    }
+
+    .pie-fecha {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 28px;
+      font-weight: 300;
+      color: var(--faded);
+      font-style: italic;
+    }
+
+    .punto-grande {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 120px;
+      line-height: 1;
+      color: var(--ink);
+      display: block;
+      margin-bottom: -16px;
+    }
+
+    @keyframes aparecer {
+      from {
+        opacity: 0;
+        transform: translateY(12px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @media (max-width: 480px) {
+      .alma-item {
+        flex-direction: column;
+        gap: 4px;
+      }
+      .alma-key {
+        min-width: unset;
+      }
+      .pie {
+        flex-direction: column;
+        gap: 16px;
+        align-items: flex-start;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="documento">
+
+    <div class="encabezado">
+      <div class="nombre">Tropos</div>
+      <div class="subtitulo">Documento fundacional</div>
+    </div>
+
+    <div class="linea-divisora"></div>
+
+    <div class="cuerpo">
+
+      <div class="bloque">
+        <span class="etiqueta">Lo que es</span>
+        <p>
+          Un lugar donde cualquier ser humano llega, escribe lo que siente en este momento,
+          y lo suelta para siempre. Sin nombre. Sin cuenta. Sin juicio. Gratuito.
+          El pensamiento queda guardado permanentemente. Cada seis meses emerge un retrato colectivo:
+          <em>esto pensaba la humanidad en este tiempo.</em>
+        </p>
+      </div>
+
+      <div class="frase-central">
+        "Aquí."
+      </div>
+
+      <div class="bloque">
+        <span class="etiqueta">Lo que no es</span>
+        <p>
+          No es una red social. No es terapia. No es un producto.
+          No pide nada. No vende nada. No sabe quién eres.
+          Es un espejo que la humanidad nunca ha tenido:
+          el pensamiento crudo, sin filtro, sin audiencia,
+          sin performance. Solo lo que se siente
+          en el momento en que se siente.
+        </p>
+      </div>
+
+      <div class="bloque">
+        <span class="etiqueta">Lo que hace</span>
+        <p>
+          De la masa de pensamientos anónimos emerge algo.
+          Un retrato. Una pregunta que nadie formuló pero todos hicieron:
+          <em>¿por qué tantos sentimos igual? ¿somos tan diferentes?
+          ¿qué podemos hacer?</em>
+          Ese retrato es público. Pertenece al mundo.
+        </p>
+      </div>
+
+      <div class="bloque">
+        <span class="etiqueta">El alma</span>
+        <div class="alma">
+          <div class="alma-item">
+            <span class="alma-key">Nombre</span>
+            <span class="alma-val">Tropos — del griego: giro, vuelta, el momento en que algo cambia de dirección</span>
+          </div>
+          <div class="alma-item">
+            <span class="alma-key">Idiomas</span>
+            <span class="alma-val">Todos. Cualquier lengua que use alguien que necesite decir algo.</span>
+          </div>
+          <div class="alma-item">
+            <span class="alma-key">Retrato</span>
+            <span class="alma-val">Cada seis meses. En la página y en el mundo.</span>
+          </div>
+          <div class="alma-item">
+            <span class="alma-key">Costo</span>
+            <span class="alma-val">Ninguno para quien necesita. Nunca.</span>
+          </div>
+          <div class="alma-item">
+            <span class="alma-key">Autoría</span>
+            <span class="alma-val">Anónima. La persona que lo construye también.</span>
+          </div>
+          <div class="alma-item">
+            <span class="alma-key">Permanencia</span>
+            <span class="alma-val">Para siempre. Lo que se suelta no desaparece.</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="bloque" style="margin-top: 56px;">
+        <span class="etiqueta">Por qué existe</span>
+        <p>
+          Dentro de cincuenta años, si Tropos existe y tiene millones de entradas,
+          será uno de los documentos más importantes que la humanidad haya producido.
+          No porque alguien famoso lo haya escrito.
+          Porque lo escribieron todos los anónimos
+          que nunca tuvieron voz en ningún libro de historia.
+        </p>
+      </div>
+
+    </div>
+
+    <div class="pie">
+      <div class="pie-texto">
+        Antioquia, Colombia<br>
+        Abril 2026
+      </div>
+      <div class="pie-fecha">origen</div>
+    </div>
+
+  </div>
+</body>
+</html>
